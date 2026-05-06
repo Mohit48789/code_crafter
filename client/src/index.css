@@ -1,0 +1,134 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-void: #040407;
+  --bg-deep: #08080f;
+  --bg-base: #0d0d1a;
+  --bg-raised: #111120;
+  --bg-float: #161628;
+  --bg-overlay: #1c1c35;
+  --bg-hover: #22223f;
+
+  --border-faint: rgba(255,255,255,0.04);
+  --border-dim: rgba(255,255,255,0.08);
+  --border-normal: rgba(255,255,255,0.12);
+  --border-bright: rgba(255,255,255,0.2);
+
+  --text-disabled: #2e2e52;
+  --text-muted: #4a4a7a;
+  --text-dim: #6b6b9f;
+  --text-secondary: #9090c0;
+  --text-primary: #d0d0f0;
+  --text-bright: #f0f0ff;
+
+  --accent-cyan: #00e5ff;
+  --accent-cyan-dim: rgba(0,229,255,0.12);
+  --accent-cyan-glow: rgba(0,229,255,0.3);
+  --accent-purple: #9c40ff;
+  --accent-purple-dim: rgba(156,64,255,0.12);
+  --accent-green: #00ff88;
+  --accent-green-dim: rgba(0,255,136,0.1);
+  --accent-pink: #ff4db8;
+  --accent-orange: #ff8c42;
+  --accent-yellow: #ffd166;
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-glow-cyan: 0 0 20px rgba(0,229,255,0.15), 0 0 60px rgba(0,229,255,0.05);
+  --shadow-glow-purple: 0 0 20px rgba(156,64,255,0.2), 0 0 60px rgba(156,64,255,0.08);
+  --shadow-panel: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-void);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-overlay); border-radius: 8px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--bg-hover); }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-overlay) transparent;
+}
+
+/* Selection */
+::selection { background: rgba(0,229,255,0.2); color: var(--text-bright); }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,229,255,0.2); }
+  50% { box-shadow: 0 0 25px rgba(0,229,255,0.5), 0 0 60px rgba(0,229,255,0.1); }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Code Mirror overrides */
+.cm-editor {
+  height: 100%;
+  font-size: 14px;
+  font-family: var(--font-mono) !important;
+}
+.cm-editor.cm-focused { outline: none !important; }
+.cm-scroller { font-family: var(--font-mono) !important; }
+.cm-gutters {
+  background: transparent !important;
+  border-right: 1px solid var(--border-faint) !important;
+}
+.cm-lineNumbers .cm-gutterElement {
+  color: var(--text-disabled) !important;
+  padding: 0 12px 0 8px !important;
+  font-size: 12px;
+}
+.cm-activeLineGutter { background: rgba(0,229,255,0.03) !important; color: var(--accent-cyan) !important; }
+.cm-activeLine { background: rgba(0,229,255,0.02) !important; }
+.cm-selectionBackground { background: rgba(0,229,255,0.15) !important; }
+.cm-focused .cm-selectionBackground { background: rgba(0,229,255,0.2) !important; }
+.cm-cursor { border-left-color: var(--accent-cyan) !important; }
+.cm-tooltip { background: var(--bg-float) !important; border: 1px solid var(--border-normal) !important; border-radius: var(--radius-md) !important; }

@@ -1,0 +1,51 @@
+{
+  "name": "collab-editor-client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.12.0",
+    "@codemirror/commands": "^6.3.3",
+    "@codemirror/lang-cpp": "^6.0.2",
+    "@codemirror/lang-css": "^6.2.1",
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-java": "^6.0.1",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-python": "^6.1.6",
+    "@codemirror/lang-rust": "^6.0.1",
+    "@codemirror/lang-sql": "^6.6.3",
+    "@codemirror/language": "^6.10.2",
+    "@codemirror/search": "^6.5.6",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.26.3",
+    "@uiw/codemirror-theme-dracula": "^4.22.1",
+    "@uiw/codemirror-theme-material": "^4.22.1",
+    "@uiw/codemirror-theme-nord": "^4.22.1",
+    "@uiw/codemirror-theme-vscode": "^4.22.1",
+    "codemirror": "^6.0.1",
+    "collabcode": "file:..",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "react-scripts": "5.0.1",
+    "socket.io-client": "^4.7.2",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
+  },
+  "proxy": "http://localhost:3001"
+}
