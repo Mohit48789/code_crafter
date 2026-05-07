@@ -8,6 +8,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint
+app.get("/", (req, res) => {
+  res.json({
+    message: "🚀 Code Crafter Server is running!",
+    endpoints: {
+      health: "/health",
+      rooms: "/api/rooms",
+      createRoom: "POST /api/rooms"
+    },
+    websocket: "ws://localhost or wss:// for secure connection"
+  });
+});
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
